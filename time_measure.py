@@ -18,6 +18,3 @@ def time_measure(ndigits=2):
             return result
         return inner_wrapper
     return outer_wrapper
-
-def a():
-    print('A')
