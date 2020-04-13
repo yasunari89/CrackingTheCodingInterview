@@ -1,6 +1,7 @@
 import sys
 sys.path.append('./..')
 from time_measure import time_measure
+from tester import Tester
 
 
 @time_measure(ndigits=10)
@@ -36,27 +37,6 @@ def check_permutation_by_ascii_list(str1, str2):
 
 
 if __name__ == "__main__":
-
-
-    class Tester:
-        def __init__(self):
-            self.n = 0
-            self.result = None
-            self.answer = None
-
-        def test(self):
-            self.n += 1
-            if self.result == self.answer:
-                return True 
-            else:
-                return False 
-
-        def tell(self, result, answer):
-            self.result = result
-            self.answer = answer
-            remarks = {True: 'Completed.', False: 'Failed.'}
-            test_result = self.test()
-            return 'TEST {}: {}'.format(self.n, remarks[test_result])
 
     t = Tester()
     print(t.tell(check_permutation_by_sort('aab', 'aba'), True))
