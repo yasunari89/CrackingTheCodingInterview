@@ -1,5 +1,3 @@
-from linked_list import LinkedList 
+from linked_list import LinkedList, Node
 
-L = LinkedList([3,5,8,5,10,2,1])
-
-print(L)
+n = LinkedList([3,5,8,5,10,2,1])
