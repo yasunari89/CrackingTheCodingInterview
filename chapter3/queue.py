@@ -17,7 +17,7 @@ class Queue:
         nodes = []
         for node in self:
             nodes.append(node)
-        return ' -> '.join([str(node.data) for node in nodes])
+        return ' - '.join([str(node.data) for node in nodes])
 
     def add(self, node):
         if self.is_empty():
