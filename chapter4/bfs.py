@@ -3,14 +3,15 @@ from myqueue import Queue
 
 
 class BFS:
-    def __init__(self, root: GraphNode):
+    def __init__(self):
         # BFSと言われたらQueue!!
         self.queue = Queue()
-        self.root = root
-        self.root.marked = True 
-        self.queue.add(root)
     
-    def search(self, value):
+    def search(self, root: GraphNode, value):
+        if root == None: return False
+        root.marked = True
+        if root.data == value: return True
+        self.queue.add(root)
         while not self.queue.is_empty():
             parent_node = self.queue.peek()
             self.queue.remove()
