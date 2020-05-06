@@ -18,5 +18,5 @@ class QueueByStacks:
             self.__stack2.push(node)
         self.__stack2.pop()
         while self.__stack2.peek():
-            item = self.__stack2.pop()
-            self.__stack1.push(item)
+            node = self.__stack2.pop()
+            self.__stack1.push(node)
