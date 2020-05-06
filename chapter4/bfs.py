@@ -4,6 +4,7 @@ from myqueue import Queue
 
 class BFS:
     def __init__(self, root: GraphNode):
+        # BFSと言われたらQueue!!
         self.queue = Queue()
         self.root = root
         self.root.marked = True 
