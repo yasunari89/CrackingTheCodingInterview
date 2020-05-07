@@ -22,7 +22,7 @@ class Bit:
         mask = ~(1 << index)
         return (num & mask) | (value << index)
 
-    def float_to_bits(self, num: float):
+    def float_to_bits32(self, num: float):
         a = bin(int(num))[2:]
         few = num - int(num)
         b = []
