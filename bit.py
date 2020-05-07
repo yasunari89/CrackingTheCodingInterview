@@ -1,4 +1,4 @@
-class BitManipulation:
+class Bit:
     def get_bit(self, num: int, index: int) -> bool:
         return num & (num << index) != 0
     

@@ -1,5 +1,4 @@
 import sys
-sys.path.append('./..')
 from time_measure import time_measure
 from tester import Tester
 

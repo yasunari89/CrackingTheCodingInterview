@@ -1,5 +1,5 @@
 from graph_node import GraphNode
-from myqueue import Queue
+from queue import Queue
 
 
 class BFS:
