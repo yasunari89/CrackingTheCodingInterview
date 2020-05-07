@@ -18,6 +18,22 @@ class Bit:
         return num & mask
     
     def update_bit(self, num: int, index: int, bit_is_one: bool) -> int:
-        value = bit_is_one if bit_is_one else 0
-        mask = -(1 << index)
+        value = 1 if bit_is_one else 0
+        mask = ~(1 << index)
         return (num & mask) | (value << index)
+
+    def float_to_bits(self, num: float):
+        a = bin(int(num))[2:]
+        few = num - int(num)
+        b = []
+        for _ in range(32-len(a)):
+            few *= 2
+            if few >= 1:
+                b.append(1)
+            else:
+                b.append(0)
+            few -= 1
+        b = ''.join([str(e) for e in b])
+        bit = float(a + '.' + b)
+        return '0b' + str(bit)
+
