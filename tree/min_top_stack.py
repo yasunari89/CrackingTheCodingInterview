@@ -1,5 +1,5 @@
 import time
-from stack import Stack
+from tree.stack import Stack
 
 
 class MinTopStack:

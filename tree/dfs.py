@@ -1,4 +1,4 @@
-from node.graph_node import GraphNode
+from tree.node.graph_node import GraphNode
 
 class DFS:
     def search(self, root: GraphNode, value):

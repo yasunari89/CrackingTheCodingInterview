@@ -1,4 +1,4 @@
-from node import Node
+from tree.node.node import Node
 
 
 class Queue:

@@ -1,5 +1,5 @@
-from node.graph_node import GraphNode
-from queue import Queue
+from tree.node.graph_node import GraphNode
+from tree.queue import Queue
 
 
 class BFS:
