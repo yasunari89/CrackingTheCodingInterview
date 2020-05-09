@@ -4,7 +4,6 @@ from tree.queue import Queue
 
 class BFS:
     def __init__(self):
-        # BFSと言われたらQueue!!
         self.queue = Queue()
     
     def search(self, root: GraphNode, value):
