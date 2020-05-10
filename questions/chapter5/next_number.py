@@ -2,41 +2,33 @@ from typing import List
 
 class NextNumber:
     def __init__(self, num: int):
-        self.num = bin(num)[2:]
+        self.num = num
+        self.bin_num = bin(num)[2:]
 
     def larger(self) -> str:
-        zero_index = self.find_continuous_zero_to_tail()
-        zero_index = zero_index if zero_index != None else len(self.num)
-        one_index = self.find_continuous_one_to_zero(zero_index)
-        larger_num = [s for s in self.num]
-        n = len(larger_num)
-        for i in range(n-(zero_index-one_index)+1, n):
-            larger_num[i] = '1'
-        for i in range(one_index, one_index+n-zero_index+1):
-            larger_num[i] = '0'
-        if one_index < 0:
-            larger_num.insert(0, '1')
-        else:
-            larger_num[one_index-1] = '1'
-        return ''.join(larger_num)
-    
-    def find_continuous_zero_to_tail(self):
-        reversed_num = reversed(self.num)
-        index = len(self.num)
-        for i, v in enumerate(reversed_num):
-            v = int(v)
-            if i == 0 and v == 1:
-                return None 
+        c0 = self.count_last_zeros(len(self.bin_num)-1)
+        c1 = self.count_last_ones(len(self.bin_num)-c0-1)
+        return self.num + (1 << c0) + (1 << (c1 - 1)) - 1
+
+    def count_last_zeros(self, last_index):
+        counter = 0
+        index = last_index
+        while index >= 0:
+            if self.bin_num[index] == '1':
+                return counter
             else:
-                if v == 0:
-                    index -= 1
-                else:
-                    return index
-                                
-    def find_continuous_one_to_zero(self, zero_index):
-        i = zero_index - 1
-        while i >= 0:
-            if self.num[i] == '0':
-                return i + 1
-            i -= 1
-        return 0
+                counter += 1
+                index -= 1
+        return counter
+    
+    def count_last_ones(self, last_index):
+        counter = 0
+        index = last_index
+        while index >= 0:
+            if self.bin_num[index] == '0':
+                return counter
+            else:
+                counter += 1
+                index -= 1
+        return counter
+    
