@@ -1,7 +1,5 @@
 from typing import List
 
-CellPoint = List[int]
-
 class Cell:
     def __init__(self, x, y):
         self.x = x 
