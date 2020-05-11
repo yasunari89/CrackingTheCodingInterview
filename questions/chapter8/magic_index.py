@@ -7,13 +7,12 @@ class MagicIndex:
         start = 0
         end = n
         while start + 1 != end:
-            time.sleep(1)
             i = self.half_index(start, end)
-            if x[i] == i:
+            if x[i] < i:
                 start = i
             else:
                 end = i  
-        return start          
+        return end        
 
     def half_index(self, start: int, end: int) -> int:
         n = end - start + 1
